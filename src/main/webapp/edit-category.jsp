@@ -2,6 +2,8 @@
 <html>
 <head>
     <title>Редактировать категорию</title>
+    <link rel="icon" href="/img/logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/img/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="/styles/page.css">
     <link rel="stylesheet" href="/styles/form.css">
 </head>

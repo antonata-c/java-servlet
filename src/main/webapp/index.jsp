@@ -3,6 +3,8 @@
 <html>
 <head>
     <title>Главная страница</title>
+    <link rel="icon" href="/img/logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/img/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="/styles/index.css">
 </head>
 <body>

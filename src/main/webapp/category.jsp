@@ -3,6 +3,8 @@
 <html>
 <head>
     <title>Категории</title>
+    <link rel="icon" href="/img/logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/img/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="/styles/page.css">
 </head>
 <body>
