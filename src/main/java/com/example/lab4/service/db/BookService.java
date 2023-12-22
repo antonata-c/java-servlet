@@ -12,15 +12,39 @@ import java.util.List;
 
 public class BookService {
     private final DataBaseService dataBaseService;
+
+    static final String SELECT_ALL = "SELECT * FROM book";
     static final String SELECT_BY_USERID = "SELECT * from book JOIN category" +
             " on category.id=book.category_id where book.author_id=?";
     static final String INSERT = "INSERT INTO book (title, author_id, category_id) values (?,?,?)";
     static final String DELETE = "DELETE FROM book where id=?";
     static final String UPDATE = "UPDATE book SET title=?, author_id=?, category_id=? where id=?";
-// TODO: сделать getallbooks и отдельной вкладкой, переписать все на другой лад, зафиксить фронт
+
     public BookService() {
         this.dataBaseService = new DataBaseService();
     }
+
+    public List<Book> getAllBooks() {
+        List<Book> books = new ArrayList<>();
+        Connection conn = dataBaseService.getConnect();
+        try {
+            PreparedStatement statement = conn.prepareStatement(SELECT_ALL);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                Book book = new Book(
+                        resultSet.getInt("id"),
+                        resultSet.getString("title"),
+                        resultSet.getInt("author_id"),
+                        resultSet.getInt("category_id")
+                );
+                books.add(book);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return books;
+    }
+
     public List<Book> getBooksByUserId(Integer userId) {
         List<Book> books = new ArrayList<>();
         Connection conn = dataBaseService.getConnect();
@@ -38,21 +62,23 @@ public class BookService {
                 books.add(book);
             }
         } catch (SQLException e) {
-           e.printStackTrace();
+            e.printStackTrace();
         }
         return books;
     }
+
     public boolean addBook(Book book) {
         return bookActions(book, INSERT);
     }
+
     public boolean editBook(Book book) {
         return bookActions(book, UPDATE);
     }
 
-    private boolean bookActions(Book book, String method) {
+    private boolean bookActions(Book book, String query) {
         Connection conn = dataBaseService.getConnect();
         try {
-            PreparedStatement statement = conn.prepareStatement(method);
+            PreparedStatement statement = conn.prepareStatement(query);
             statement.setString(1, book.getTitle());
             statement.setInt(2, book.getAuthorId());
             statement.setInt(3, book.getCategoryId());

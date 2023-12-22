@@ -9,13 +9,7 @@
     <link rel="shortcut icon" href="/img/logo.png" type="image/x-icon">
 </head>
 <body>
-    <nav class="navbar">
-        <ul>
-            <li><a href="/">Главная</a></li>
-            <li><a href="/users">Пользователи</a></li>
-            <li><a href="/category">Категории покупок</a></li>
-        </ul>
-    </nav>
+    <jsp:include page="includes/navbar.html" />
     <div style="text-align: center">
         <h1>Список пользователей</h1>
         <table style="margin: auto">

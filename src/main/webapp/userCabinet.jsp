@@ -5,17 +5,11 @@
     <title>Личный кабинет</title>
     <link rel="icon" href="/img/logo.png" type="image/x-icon">
     <link rel="shortcut icon" href="/img/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="/styles/userCabinet.css">
+    <link rel="stylesheet" href="/styles/category.css">
     <link rel="stylesheet" href="/styles/navbar.css">
 </head>
 <body>
-    <nav class="navbar">
-        <ul>
-            <li><a href="/">Главная</a></li>
-            <li><a href="/users">Пользователи</a></li>
-            <li><a href="/category">Категории покупок</a></li>
-        </ul>
-    </nav>
+    <jsp:include page="includes/navbar.html" />
     <div class="container">
         <h1>Добрый день, ${user.firstName}!</h1>
         <button class="create-button" onclick="openCreateExpenseModal()">Добавить покупку</button>

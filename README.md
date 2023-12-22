@@ -1,2 +1,1 @@
-# java-servlet
-# java-servlet
+# Курсовая работа "Веб-приложение на языке Java"
