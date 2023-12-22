@@ -4,7 +4,6 @@
 <head>
     <title>Пользователи</title>
     <link rel="stylesheet" href="styles/users.css">
-    <link rel="stylesheet" href="/styles/navbar.css">
     <link rel="icon" href="/img/logo.png" type="image/x-icon">
     <link rel="shortcut icon" href="/img/logo.png" type="image/x-icon">
 </head>
@@ -14,11 +13,11 @@
         <h1>Список пользователей</h1>
         <table style="margin: auto">
             <tr>
-                <th>Id</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Login</th>
-                <th>Password</th>
+                <th>ID</th>
+                <th>Имя</th>
+                <th>Фамилия</th>
+                <th>Логин</th>
+                <th>Пароль</th>
             </tr>
             <c:forEach items="${users}" var="user">
             <tr onclick="window.location.href='http://localhost:8080/users/${user.id}'" style="cursor: pointer;">

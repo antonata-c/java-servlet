@@ -31,9 +31,8 @@ public class UserServlet extends HttpServlet {
         String userId = path.split("/")[1];
         User user = userService.getUserById(Integer.parseInt(userId));
         List<Book> books = bookService.getBooksByUserId(Integer.valueOf(userId));
-        req.setAttribute("categories", categoryService.getAllCategories());
         req.setAttribute("user", user);
         req.setAttribute("books", books);
-        req.getRequestDispatcher("/userCabinet.jsp").forward(req, resp);
+        req.getRequestDispatcher("/user-acc.jsp").forward(req, resp);
     }
 }

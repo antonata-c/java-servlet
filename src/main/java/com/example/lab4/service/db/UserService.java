@@ -21,7 +21,7 @@ public class UserService {
         List<User> users = new ArrayList<>();
         try {
             ResultSet resultSet = dataBaseService.select(SELECT_ALL);
-            while (resultSet.next()) { // TODO: Допилить удаление, продолжить пилить функционал книг и пользовательского кабинета
+            while (resultSet.next()) { // TODO: продолжить пилить функционал книг(CRUD)
                 User user = new User(
                         resultSet.getInt("id"),
                         resultSet.getString("first_name"),

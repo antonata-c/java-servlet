@@ -2,19 +2,20 @@
 <html>
 <head>
     <title>Добавить категорию</title>
-    <link rel="stylesheet" href="/styles/category.css">
+    <link rel="stylesheet" href="/styles/page.css">
+    <link rel="stylesheet" href="/styles/form.css">
 </head>
 <body>
-    <div class="modal">
-        <div class="modal-content">
-            <h2>Добавить категорию</h2>
-            <form id="createCategoryForm" action="/category" method="POST">
-                <label for="name">Название</label>
-                <input type="text" id="name" name="name" maxlength="50" required>
-                <button type="submit">Создать</button>
-                <div id="message"></div>
-            </form>
+<jsp:include page="includes/navbar.html"/>
+<div class="container">
+    <form id="createCategoryForm" action="/category" method="POST">
+        <span class="text-center">Добавить категорию</span>
+        <div class="input-container">
+            <input type="text" id="name" name="name" maxlength="50" required>
+            <label for="name">Название</label>
         </div>
-    </div>
+        <button type="submit">Создать</button>
+    </form>
+</div>
 </body>
 </html>

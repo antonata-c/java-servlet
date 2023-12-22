@@ -3,8 +3,7 @@
 <html>
 <head>
     <title>Категории</title>
-    <link rel="stylesheet" href="/styles/category.css">
-    <link rel="stylesheet" href="/styles/navbar.css">
+    <link rel="stylesheet" href="/styles/page.css">
 </head>
 <body>
     <jsp:include page="includes/navbar.html" />
@@ -18,6 +17,7 @@
             <tr>
                 <th>Id</th>
                 <th>Название</th>
+                <th>Действие</th>
             </tr>
             </thead>
             <tbody>
@@ -29,7 +29,7 @@
                         <a href="edit-category.jsp?id=${category.id}">
                             <button class="edit-button">Редактировать</button>
                         </a>
-                        <a href="/category/${category.id}">
+                        <a href="/category?delete_id=${category.id}">
                             <button class="delete-button">Удалить</button>
                         </a>
                     </td>

@@ -3,7 +3,6 @@
 <html>
 <head>
     <title>Главная страница</title>
-    <link rel="stylesheet" href="/styles/navbar.css">
     <link rel="stylesheet" href="/styles/index.css">
 </head>
 <body>

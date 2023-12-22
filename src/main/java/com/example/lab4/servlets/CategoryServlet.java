@@ -21,9 +21,13 @@ public class CategoryServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        if(req.getParameter("delete_id") != null){
+            doDelete(req, resp);
+            return;
+        }
         List<Category> categories = categoryService.getAllCategories();
-        req.setAttribute("categories",categories);
-        req.getRequestDispatcher("/category.jsp").forward(req,resp);
+        req.setAttribute("categories", categories);
+        req.getRequestDispatcher("/category.jsp").forward(req, resp);
     }
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
@@ -34,27 +38,30 @@ public class CategoryServlet extends HttpServlet {
         }
         Category category = new Category(req.getParameter("name"));
         if (categoryService.addCategory(category)) {
-            resp.getWriter().println("Success");
-        }
-        else {
+            resp.sendRedirect("/category");
+        } else {
             resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             resp.getWriter().write("Error while creating category");
         }
     }
 
-    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) {
-        int categoryId = Integer.parseInt(req.getParameter("id"));
-        if (!categoryService.deleteCategory(categoryId)) {
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        int categoryId = Integer.parseInt(req.getParameter("delete_id"));
+        if (categoryService.deleteCategory(categoryId)) {
+            resp.sendRedirect("/category");
+        } else {
             resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
         }
     }
 
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         Category category = new Category(Integer.parseInt(req.getParameter("id")), req.getParameter("name"));
-        if (!categoryService.editCategory(category)){
+        if (categoryService.editCategory(category)) {
+            resp.sendRedirect("/category");
+        } else {
             resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             JsonObject error = new JsonObject();
-            error.addProperty("message","No expense with id "+category.getId());
+            error.addProperty("message", "No expense with id " + category.getId());
             resp.setContentType("application/json");
             resp.getWriter().write(error.toString());
         }

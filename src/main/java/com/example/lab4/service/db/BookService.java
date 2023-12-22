@@ -14,8 +14,7 @@ public class BookService {
     private final DataBaseService dataBaseService;
 
     static final String SELECT_ALL = "SELECT * FROM book";
-    static final String SELECT_BY_USERID = "SELECT * from book JOIN category" +
-            " on category.id=book.category_id where book.author_id=?";
+    static final String SELECT_BY_USERID = "SELECT * from book where book.author_id=?";
     static final String INSERT = "INSERT INTO book (title, author_id, category_id) values (?,?,?)";
     static final String DELETE = "DELETE FROM book where id=?";
     static final String UPDATE = "UPDATE book SET title=?, author_id=?, category_id=? where id=?";
@@ -36,7 +35,7 @@ public class BookService {
                         resultSet.getString("title"),
                         resultSet.getInt("author_id"),
                         resultSet.getInt("category_id")
-                );
+                        );
                 books.add(book);
             }
         } catch (SQLException e) {
@@ -58,7 +57,7 @@ public class BookService {
                         resultSet.getString("title"),
                         resultSet.getInt("author_id"),
                         resultSet.getInt("category_id")
-                );
+                        );
                 books.add(book);
             }
         } catch (SQLException e) {

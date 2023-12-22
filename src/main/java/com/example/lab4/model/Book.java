@@ -12,6 +12,11 @@ public class Book {
         this.authorId = authorId;
         this.categoryId = categoryId;
     }
+    public Book(String title, int authorId, int categoryId) {
+        this.title = title;
+        this.authorId = authorId;
+        this.categoryId = categoryId;
+    }
 
     public int getId() {
         return id;

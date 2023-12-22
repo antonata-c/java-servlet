@@ -2,20 +2,21 @@
 <html>
 <head>
     <title>Редактировать категорию</title>
-    <link rel="stylesheet" href="/styles/category.css">
+    <link rel="stylesheet" href="/styles/page.css">
+    <link rel="stylesheet" href="/styles/form.css">
 </head>
 <body>
-    <div class="modal">
-        <div class="modal-content">
-            <h2>Редактировать категорию</h2>
-            <form id="editCategoryForm" action="/category/${param.get("id")}" method="POST">
-                <input type="hidden" name="id" value="${param.get("id")}" />
-                <label for="name">Название</label>
-                <input type="text" id="name" name="name" maxlength="50" required>
-                <button type="submit">Сохранить</button>
-                <div id="edit-message"></div>
-            </form>
+<jsp:include page="includes/navbar.html"/>
+<div class="container">
+    <form id="editCategoryForm" action="/category/${param.get("id")}" method="POST">
+        <span class="text-center">Редактировать категорию</span>
+        <input type="hidden" name="id" value="${param.get("id")}"/>
+        <div class="input-container">
+            <input type="text" id="name" name="name" maxlength="50" required>
+            <label for="name">Название</label>
         </div>
-    </div>
+        <button type="submit">Сохранить</button>
+    </form>
+</div>
 </body>
 </html>
