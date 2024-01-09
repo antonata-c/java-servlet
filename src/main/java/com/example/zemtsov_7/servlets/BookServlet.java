@@ -1,12 +1,9 @@
-package com.example.lab4.servlets;
+package com.example.zemtsov_7.servlets;
 
-import com.example.lab4.model.Book;
-import com.example.lab4.model.Category;
-import com.example.lab4.model.User;
-import com.example.lab4.service.db.BookService;
-import com.example.lab4.service.db.CategoryService;
-import com.example.lab4.service.db.UserService;
-import com.google.gson.Gson;
+import com.example.zemtsov_7.model.Book;
+import com.example.zemtsov_7.service.db.BookService;
+import com.example.zemtsov_7.service.db.CategoryService;
+import com.example.zemtsov_7.service.db.UserService;
 import com.google.gson.JsonObject;
 
 import javax.servlet.ServletException;
@@ -17,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 @WebServlet("/books/*")
 public class BookServlet extends HttpServlet {
@@ -42,15 +38,7 @@ public class BookServlet extends HttpServlet {
         String path = req.getPathInfo();
         if (path == null || path.isEmpty()) {
             req.getRequestDispatcher("/books.jsp").forward(req, resp);
-            return;
         }
-        String userId = path.split("/")[1];
-        User user = userService.getUserById(Integer.parseInt(userId));
-        books = bookService.getBooksByUserId(Integer.valueOf(userId));
-        req.setAttribute("categories", categoryService.getAllCategories());
-        req.setAttribute("users", user);
-        req.setAttribute("books", books);
-        req.getRequestDispatcher("/user-acc.jsp").forward(req, resp);
     }
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {

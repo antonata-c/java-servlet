@@ -1,4 +1,4 @@
-package com.example.lab4.utils;
+package com.example.zemtsov_7.utils;
 
 import java.sql.*;
 

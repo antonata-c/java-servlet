@@ -1,10 +1,32 @@
 <link rel="stylesheet" href="/styles/navbar.css">
-<nav class="navbar">
-    <ul>
-        <li><a href="/">Главная</a></li>
-        <li><a href="/books">Библиотека</a></li>
-        <li><a href="/books?add=true">Добавить книгу</a></li>
-        <li><a href="/category">Категории книг</a></li>
-        <li><a href="/users">Пользователи</a></li>
-    </ul>
-</nav>
+<div class="navbar-container">
+    <button class="navbar-toggle" onclick="toggleNavbar()">Меню</button>
+    <nav class="navbar" id="navbar">
+        <ul>
+            <li><a href="/">Главная</a></li>
+            <li><a href="/books">Библиотека</a></li>
+            <li><a href="/books?add=true">Добавить книгу</a></li>
+            <li><a href="/category">Категории книг</a></li>
+            <li><a href="/users">Авторы</a></li>
+            <li><a href="/follow">Мои подписки</a></li>
+            <li><a href="/profile">Мой профиль</a></li>
+            <li><a href="/logout.jsp">Выйти</a></li>
+        </ul>
+    </nav>
+</div>
+
+<script>
+    function toggleNavbar() {
+        const navbar = document.querySelector('.navbar');
+        navbar.classList.toggle('navbar-visible');
+    }
+
+    document.addEventListener('click', function(event) {
+        const navbar = document.querySelector('.navbar');
+        const container = document.querySelector('.navbar-container');
+
+        if (!container.contains(event.target) && !navbar.contains(event.target)) {
+            navbar.classList.remove('navbar-visible');
+        }
+    });
+</script>

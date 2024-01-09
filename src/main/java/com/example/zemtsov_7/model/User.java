@@ -1,4 +1,4 @@
-package com.example.lab4.model;
+package com.example.zemtsov_7.model;
 
 public class User {
     private int id;

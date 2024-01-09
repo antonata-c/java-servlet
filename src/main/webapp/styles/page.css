@@ -51,3 +51,41 @@ button {
     border: none;
     border-radius: 4px;
 }
+
+.reader-card {
+    font-family: 'Arial', sans-serif;
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.reader-card:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.card-info {
+    margin-top: 15px;
+}
+
+.label {
+    font-weight: bold;
+    margin-right: 5px;
+    color: #555;
+}
+
+.value {
+    color: #333;
+}
+

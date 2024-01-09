@@ -1,7 +1,7 @@
-package com.example.lab4.service.db;
+package com.example.zemtsov_7.service.db;
 
-import com.example.lab4.model.Book;
-import com.example.lab4.utils.DataBaseService;
+import com.example.zemtsov_7.model.Book;
+import com.example.zemtsov_7.utils.DataBaseService;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,11 +13,16 @@ import java.util.List;
 public class BookService {
     private final DataBaseService dataBaseService;
 
-    static final String SELECT_ALL = "SELECT * FROM book";
-    static final String SELECT_BY_USERID = "SELECT * from book where book.author_id=?";
-    static final String INSERT = "INSERT INTO book (title, author_id, category_id) values (?,?,?)";
+    static final String SELECT_ALL = "SELECT * FROM book " +
+            "JOIN users ON book.author_id = users.id " +
+            "LEFT JOIN category ON book.category_id = category.id";
+    static final String SELECT_BY_USERID = "SELECT * FROM book " +
+            "JOIN users ON book.author_id = users.id " +
+            "JOIN category ON book.category_id = category.id" +
+            " WHERE book.author_id=?";
+    static final String INSERT = "INSERT INTO book (title, author_id, category_id) VALUES (?,?,?)";
     static final String DELETE = "DELETE FROM book where id=?";
-    static final String UPDATE = "UPDATE book SET title=?, author_id=?, category_id=? where id=?";
+    static final String UPDATE = "UPDATE book SET title=?, author_id=?, category_id=? WHERE id=?";
 
     public BookService() {
         this.dataBaseService = new DataBaseService();
@@ -32,10 +37,11 @@ public class BookService {
             while (resultSet.next()) {
                 Book book = new Book(
                         resultSet.getInt("id"),
-                        resultSet.getString("title"),
                         resultSet.getInt("author_id"),
-                        resultSet.getInt("category_id")
-                        );
+                        resultSet.getString("title"),
+                        resultSet.getString("first_name") + " " + resultSet.getString("last_name"),
+                        resultSet.getString("name")
+                );
                 books.add(book);
             }
         } catch (SQLException e) {
@@ -54,10 +60,11 @@ public class BookService {
             while (resultSet.next()) {
                 Book book = new Book(
                         resultSet.getInt("id"),
-                        resultSet.getString("title"),
                         resultSet.getInt("author_id"),
-                        resultSet.getInt("category_id")
-                        );
+                        resultSet.getString("title"),
+                        resultSet.getString("first_name") + " " + resultSet.getString("last_name"),
+                        resultSet.getString("name")
+                );
                 books.add(book);
             }
         } catch (SQLException e) {

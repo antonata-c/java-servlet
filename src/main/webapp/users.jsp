@@ -10,22 +10,18 @@
 <body>
     <jsp:include page="includes/navbar.html" />
     <div style="text-align: center">
-        <h1>Список пользователей</h1>
+        <h1>Список авторов</h1>
         <table style="margin: auto">
             <tr>
                 <th>ID</th>
                 <th>Имя</th>
                 <th>Фамилия</th>
-                <th>Логин</th>
-                <th>Пароль</th>
             </tr>
             <c:forEach items="${users}" var="user">
             <tr onclick="window.location.href='http://localhost:8080/users/${user.id}'" style="cursor: pointer;">
                 <td>${user.id}</td>
                 <td>${user.firstName}</td>
                 <td>${user.lastName}</td>
-                <td>${user.login}</td>
-                <td>${user.password}</td>
             </tr>
             </c:forEach>
         </table>

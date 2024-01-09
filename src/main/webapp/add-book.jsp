@@ -5,10 +5,10 @@
     <title>Добавить книгу</title>
     <link rel="icon" href="/img/logo.png" type="image/x-icon">
     <link rel="shortcut icon" href="/img/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="/styles/page.css">
     <link rel="stylesheet" href="/styles/form.css">
 </head>
 <body>
+<%--TODO: заменить список пользователей на авторов, убрать оттуда логин пароль, продолжить работу с крудом моделей--%>
 <jsp:include page="includes/navbar.html"/>
 <div class="container">
     <form id="createCategoryForm" action="/books" method="POST">

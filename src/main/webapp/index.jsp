@@ -10,5 +10,6 @@
 <body>
     <jsp:include page="includes/navbar.html" />
     <h1 align="center">Добро пожаловать в библиотеку!</h1>
+    <a href="/books"><img class="center" src="/img/index-image.jpg" alt="Библиотека"></a>
 </body>
 </html>

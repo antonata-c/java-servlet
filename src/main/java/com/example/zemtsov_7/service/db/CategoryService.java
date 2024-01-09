@@ -1,8 +1,7 @@
-package com.example.lab4.service.db;
+package com.example.zemtsov_7.service.db;
 
-import com.example.lab4.model.Category;
-import com.example.lab4.model.User;
-import com.example.lab4.utils.DataBaseService;
+import com.example.zemtsov_7.model.Category;
+import com.example.zemtsov_7.utils.DataBaseService;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

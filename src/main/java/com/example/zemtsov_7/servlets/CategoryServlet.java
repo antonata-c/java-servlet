@@ -1,7 +1,7 @@
-package com.example.lab4.servlets;
+package com.example.zemtsov_7.servlets;
 
-import com.example.lab4.model.Category;
-import com.example.lab4.service.db.CategoryService;
+import com.example.zemtsov_7.model.Category;
+import com.example.zemtsov_7.service.db.CategoryService;
 import com.google.gson.JsonObject;
 
 import javax.servlet.ServletException;
@@ -14,11 +14,7 @@ import java.util.List;
 
 @WebServlet("/category/*")
 public class CategoryServlet extends HttpServlet {
-    private final CategoryService categoryService;
-
-    public CategoryServlet() {
-        this.categoryService = new CategoryService();
-    }
+    private final CategoryService categoryService = new CategoryService();
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if(req.getParameter("delete_id") != null){

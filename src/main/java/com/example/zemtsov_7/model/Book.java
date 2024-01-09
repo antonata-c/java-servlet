@@ -1,4 +1,4 @@
-package com.example.lab4.model;
+package com.example.zemtsov_7.model;
 
 public class Book {
     private int id;
@@ -6,16 +6,38 @@ public class Book {
     private int authorId;
     private int categoryId;
 
-    public Book(int id, String title, int authorId, int categoryId) {
+
+    private String authorName;
+    private String categoryName;
+
+    public Book(int id, int authorId, String title, String authorName, String categoryName) {
         this.id = id;
         this.title = title;
         this.authorId = authorId;
-        this.categoryId = categoryId;
+        this.authorName = authorName;
+        this.categoryName = categoryName;
     }
+
     public Book(String title, int authorId, int categoryId) {
         this.title = title;
         this.authorId = authorId;
         this.categoryId = categoryId;
+    }
+
+    public String getAuthorName() {
+        return authorName;
+    }
+
+    public void setAuthorName(String authorName) {
+        this.authorName = authorName;
+    }
+
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
     }
 
     public int getId() {

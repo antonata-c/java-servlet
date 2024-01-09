@@ -1,33 +1,76 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px;
+    background-color: #ff8c00;
+}
+
+.navbar-toggle {
+    background-color: transparent;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.navbar-toggle i {
+    pointer-events: none;
+}
+
+.navbar-toggle:hover {
+    color: #ff4500;
+}
+
 .navbar {
-    position: relative;
-    left: 0;
-    background-color: orange;
-    width: 100%;
-    margin: 0 auto;
+    background-color: #ff8c00;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 200px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transition: opacity 0.5s, top 0.5s;
+}
+
+.navbar-visible {
+    display: flex;
+    opacity: 1;
 }
 
 .navbar ul {
-    margin: 0;
-    padding: 0;
     list-style: none;
-    text-align: center;
+    padding: 0;
+    margin: 0;
 }
 
-.navbar ul li {
-    margin: 0;
-    padding: 0;
-    display: inline-block;
+.navbar li {
+    width: 100%;
+    text-align: center;
+    transition: background-color 0.3s;
 }
 
 .navbar a {
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 15px 20px;
     text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .navbar a:hover {
-    background-color: orange;
+    background-color: #ff4500;
     color: black;
 }

@@ -21,13 +21,15 @@
         <c:forEach items="${books}" var="book">
             <tr>
                 <td>${book.title}</td>
-                <td>${book.authorId}</td>
-                <td>${book.categoryId}</td>
+                <td>${book.authorName}</td>
+                <td>${book.categoryName}</td>
+                <c:if test="${book.authorId == user_id}">
                 <td>
                     <a href="/books?delete_id=${book.id}">
                         <button class="delete-button">Удалить</button>
                     </a>
                 </td>
+                </c:if>
             </tr>
         </c:forEach>
     </table>
